@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native"
-import PostForm from './PostForm'
+import PostForm from '../../components/post/PostForm'
 
 const NewPost = (props:any) => {
 

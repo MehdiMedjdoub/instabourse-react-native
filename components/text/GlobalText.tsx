@@ -10,7 +10,7 @@ import {
     Jura_700Bold 
   } from '@expo-google-fonts/jura';
 
-const CustomText = (props:any) => {
+const GlobalText = (props:any) => {
 
     let [fontsLoaded] = useFonts({
         Jura_300Light,
@@ -23,7 +23,8 @@ const CustomText = (props:any) => {
     const styles = StyleSheet.create({
         fontStyle: {
             fontFamily: 'Jura_700Bold',
-            color: props.color
+            color: props.color,
+            fontSize: props.fontSize,
         }
     })
 
@@ -38,4 +39,4 @@ const CustomText = (props:any) => {
     }
 }
 
-export default CustomText
+export default GlobalText

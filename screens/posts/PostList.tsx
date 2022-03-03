@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, SafeAreaView, ScrollView, View } from "react-native"
-import CustomText from "../components/CustomText";
+import GlobalText from "../../components/text/GlobalText";
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import ApiPost from "../services/api/ApiPost";
-import CarouselList from "../components/CarouselList";
+import ApiPost from "../../services/api/ApiPost";
+import ApiMarketStack from "../../services/api/ApiMarketStack";
+import CarouselList from "../../components/carousel/CarouselList";
 
 const styles = StyleSheet.create({
     headerProfile: {
@@ -78,6 +79,11 @@ const PostList = ({navigation}:any) => {
     }, [])
 
     useEffect(() => {
+        ApiMarketStack.getQuote()
+        ApiMarketStack.getSpark()
+    })
+
+    useEffect(() => {
         ApiPost.updateLikeStatus(postId, isLiked)
     }, [isLiked])
 
@@ -85,7 +91,7 @@ const PostList = ({navigation}:any) => {
         <SafeAreaView>
             <View style={styles.headerProfile}>
                 <Ionicons name="person-circle-outline" size={48} color="grey" onPress={() => navigation.navigate('Profile')}/>
-                <CustomText onPress={() => navigation.navigate('NewPost')} color={"#dddddd"}>Quoi de neuf ?</CustomText>
+                <GlobalText onPress={() => navigation.navigate('NewPost')} color={"#dddddd"}>Quoi de neuf ?</GlobalText>
             </View>
 
             <CarouselList users={user.subscriptions} />
@@ -104,10 +110,10 @@ const PostList = ({navigation}:any) => {
                         </View>
                         <View style={styles.cardContent}>
                             <View style={styles.cardHeaderContent}>
-                                <CustomText color="#dddddd">{user.name}</CustomText>
-                                <CustomText color="#dddddd">{user.createdAt}</CustomText>
+                                <GlobalText color="#dddddd">{user.name}</GlobalText>
+                                <GlobalText color="#dddddd">{user.createdAt}</GlobalText>
                             </View>
-                            <CustomText color="#dddddd">{post.content}</CustomText>
+                            <GlobalText color="#dddddd">{post.content}</GlobalText>
                             <View style={styles.cardFooterContent}>
                                 <Ionicons name="chatbubble-outline" size={24} color="#aaaaaa" style={{flex:1}} onPress={() => navigation.navigate('Profile')}/>
                                 <Ionicons name="arrow-redo-outline" size={24} color="#aaaaaa" style={{flex:1}} onPress={() => navigation.navigate('Profile')}/>

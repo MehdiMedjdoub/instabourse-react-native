@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { Button, Pressable, StyleSheet } from "react-native"
-
 import { createStackNavigator } from '@react-navigation/stack';
-import ApiPost from "../services/api/ApiPost";
 
-import Profile from "../screens/Profile";
-import NewPost from './NewPost';
-import Setting from "../screens/Setting";
-import PostList from "../screens/PostList";
-import CustomText from "./CustomText";
-import LogoText from "./LogoText";
+import GlobalText from "../components/text/GlobalText";
+import LogoText from "../components/text/LogoText";
+
+import ActualityFeed from "./ActualityFeed";
+import Profile from "./Profile";
+import NewPost from './posts/NewPost';
+import NewsList from "./NewsList";
+
+import ApiPost from "../services/api/ApiPost";
+import PostList from "./posts/PostList";
+
+
 
 const Stack = createStackNavigator();
 
@@ -25,7 +29,6 @@ const Home = () => {
             borderColor: "#cccccc",
             borderRadius: 4,
             elevation: 3,
-            //backgroundColor: 'black',
           }
     })
 
@@ -43,10 +46,10 @@ const Home = () => {
     }
 
     return (
-        <Stack.Navigator  initialRouteName="PostList" >
+        <Stack.Navigator  initialRouteName="ActualityFeed" >
             <Stack.Screen 
-                name="PostList" 
-                component={PostList} 
+                name="ActualityFeed" 
+                component={ActualityFeed} 
                 options={{ 
                     headerTitle: (props) => <LogoText {...props} />,
                     headerTitleAlign: "left",
@@ -67,7 +70,6 @@ const Home = () => {
                     headerLeft: () => <Button title="<" onPress={navigation.goBack} />,
                   })}
             >
-                <Stack.Screen name="Setting" component={Setting} />
                 <Stack.Screen name="Profile" component={Profile} />
                 <Stack.Screen 
                     name="NewPost"
@@ -79,7 +81,7 @@ const Home = () => {
                                 onPress={() => submitPost }
                                 style={styles.button}
                              >
-                                 <CustomText color="#dddddd">Publier</CustomText>
+                                 <GlobalText color="#dddddd">Publier</GlobalText>
                             </Pressable>
 
                         ),

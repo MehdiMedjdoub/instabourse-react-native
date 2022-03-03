@@ -1,11 +1,13 @@
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import Home from './components/Home';
+import Home from './screens/Home';
 import Setting from './screens/Setting';
+import Stock from './screens/stock/Stock';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,12 +39,14 @@ export default function App() {
 					tabBarIcon: ({ focused, color, size }) => {
 					let iconName;
 		
-					if (route.name === 'Home') {
+					if (route.name === 'Feed') {
 						iconName = focused
 						? 'home'
 						: 'home-outline';
 					} else if (route.name === 'Settings') {
-						iconName =  'ios-list';
+						iconName =  'settings';
+					} else if (route.name === 'Stock') {
+						iconName =  'trending-up';
 					}
 		
 					// You can return any component that you like here!
@@ -60,10 +64,10 @@ export default function App() {
 					tabBarInactiveTintColor: 'gray',
 				})}
 			>
-				<Tab.Screen name="Home" component={Home} />
+				<Tab.Screen name="Feed" component={Home} />
+				<Tab.Screen name="Réseau" component={Home} />
+				<Tab.Screen name="Stock" component={Stock} />
 				<Tab.Screen name="Settings" component={Setting} />
-				<Tab.Screen name="Home2" component={Home} />
-				<Tab.Screen name="Settings2" component={Setting} />
 			</Tab.Navigator>
 		</NavigationContainer>
 	);

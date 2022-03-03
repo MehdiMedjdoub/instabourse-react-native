@@ -19,16 +19,4 @@ export default {
     addPost: function (post:any) {
         const data = {content: post}
     },
-
-    updateLikeStatus: async function (postId:number, isLiked:boolean) {
-        const id = 1
-        await axios.put(`${burl}/user/${id}/posts/like`,{
-            postId: postId,
-            isLiked:isLiked
-            // headers: {
-            //     'Content-Type': 'application/json',
-            //     'authorization': 'Bearer ' + localStorage.getItem("token")
-            // }
-        })
-    }
 }

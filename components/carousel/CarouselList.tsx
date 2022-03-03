@@ -1,6 +1,7 @@
+import React from "react";
 import { ScrollView, View } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
-import CustomText from "./CustomText";
+import GlobalText from "../text/GlobalText";
 import { styles } from "./CarouselList.style";
 
 const CarouselList = (props:any) => {
@@ -25,7 +26,7 @@ const CarouselList = (props:any) => {
                         onPress={() => console.log('subscription profile')}
                     />
                     }
-                    <CustomText color="#cccccc">{user.userName}</CustomText>
+                    <GlobalText color="#cccccc">{user.userName}</GlobalText>
                 </View>
             ))}
         </ScrollView>

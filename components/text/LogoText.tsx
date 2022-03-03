@@ -19,7 +19,7 @@ const LogoText = (props:any) => {
                     fontSize:30
                 }}
             >
-                InstaStock
+                InstaBourse
             </Text>
         )
     }

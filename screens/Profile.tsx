@@ -1,10 +1,10 @@
 import React from "react";
 import { Text } from "react-native"
-import CustomText from "../components/CustomText";
+import GlobalText from "../components/text/GlobalText";
 
 const Profile = () => {
     return (
-        <CustomText>Mehdi Medjdoub</CustomText>
+        <GlobalText>Page Profile</GlobalText>
     )
 }
 
