@@ -4,5 +4,6 @@
     "jsx": "react",
     "strict": true
   },
-  "typeRoots": ["./types"]
+  "exclude": ["node_modules", "typings"],
+  "typeRoots": ["./types", "./node_modules/@types"]
 }

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     carouselItems: {
-        height: 200,
+        height: 180,
         display: 'flex',
         padding: 1,
         marginVertical: 10,

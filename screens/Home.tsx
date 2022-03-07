@@ -5,15 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import GlobalText from "../components/text/GlobalText";
 import LogoText from "../components/text/LogoText";
 
-import ActualityFeed from "./ActualityFeed";
+import ActualityFeed from "./feeds/ActualityFeed";
 import Profile from "./Profile";
 import NewPost from './posts/NewPost';
 import NewsList from "./NewsList";
 
 import ApiPost from "../services/api/ApiPost";
 import PostList from "./posts/PostList";
-
-
 
 const Stack = createStackNavigator();
 

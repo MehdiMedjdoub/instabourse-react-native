@@ -27,7 +27,15 @@ const StockList = ({navigation}:any) => {
         <SafeAreaView>
             <ScrollView>
                 {Quote != undefined && Quote.quoteResponse.result.map((quote:any) => (
-                    <TouchableOpacity style={styles.cardContainer} onPress={() => navigation.navigate('StockDetail', {quote: quote, spark: Spark[quote.symbol], color: getColor(quote.regularMarketChange)})}>
+                    <TouchableOpacity 
+                        key={quote.symbol}
+                        style={styles.cardContainer} 
+                        onPress={() => navigation.navigate('StockDetail', {
+                            quote: quote, 
+                            spark: Spark[quote.symbol], 
+                            color: getColor(quote.regularMarketChange)
+                            })}
+                    >
                         <View style={styles.cardTitle}>
                             <GlobalText color="#ffffff" fontSize={20}>{quote.symbol}</GlobalText>
                             <GlobalText color="#cccccc" fontSize={12}>{quote.shortName}</GlobalText>
